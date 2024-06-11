@@ -1,0 +1,18 @@
+<div *ngIf="book"></div>
+<h2>Informacje o:{{book?.title | uppercase }}</h2>
+  <div><label>id: </label>{{book?.id}}</div>
+  <div>
+    <label>title: </label>
+    <input [(ngModel)]="book.title" placeholder="title"/>
+    <br>
+    <label>author:
+        <input [(ngModel)]="book.author" placeholder="author">
+    </label>
+    <br>
+    <label>year:
+        <input [(ngModel)]="book.year" placeholder="year">
+    </label>
+    <br>
+    <!-- <button (click)="removeBook(book)">Usuń</button> -->
+    <!-- <button (click)="clearSelectedBook()">Close</button> -->
+  </div>

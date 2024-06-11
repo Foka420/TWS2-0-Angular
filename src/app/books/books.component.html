@@ -1,0 +1,48 @@
+<!-- <h2>Informacje o : {{ book.title | uppercase }}</h2>
+<div><span>id:</span>{{book.id}}</div>
+<div><span>title:</span>{{book.title}}</div>
+<div><span>author:</span>{{book.author}}</div>
+<div><span>year:</span>{{book.year}}</div>
+
+<div>
+    <label>title:
+        <input [(ngModel)]="book.title" placeholder="title">
+    </label>
+    <br>
+    <label>author:
+        <input [(ngModel)]="book.author" placeholder="author">
+    </label>
+    <br>
+    <label>year:
+        <input [(ngModel)]="book.year" placeholder="year">
+    </label>
+</div> -->
+<div *ngIf="selectedBook.id !== 0">
+    <h2>Informacje o : {{selectedBook.title | uppercase}}</h2>
+    <div><span>id:</span>{{selectedBook.id}}</div>
+    <div>
+        <label>title:
+            <input [(ngModel)]="selectedBook.title" placeholder="title">
+        </label>
+        <br>
+        <label>author:
+            <input [(ngModel)]="selectedBook.author" placeholder="author">
+        </label>
+        <br>
+        <label>year:
+            <input [(ngModel)]="selectedBook.year" placeholder="year">
+        </label>
+        <br>
+        <button (click)="removeBook(selectedBook)">Usuń</button>
+        <button (click)="clearSelectedBook()">Close</button>
+    </div>
+
+</div>
+<!-- <app-book-detail *ngIf="selectedBook.id !== 0" [book]="selectedBook"></app-book-detail> -->
+<h2>Lista książek</h2>
+<ul class="books">
+    <li *ngFor="let book of books" (click)="onSelect(book)">
+        <span class="badge">{{book.id}}</span>
+        <span>{{book.author}} - {{book.title}}</span>
+    </li>
+</ul>
