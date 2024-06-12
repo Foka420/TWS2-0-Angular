@@ -28,8 +28,11 @@ export class BooksComponent implements OnInit{
     year: 0
   }
 
+  isDetailsVisible: boolean = false;
+
   onSelect(book: Book): void {
     this.selectedBook = book;
+    this.isDetailsVisible = true;
   }
 
   clearSelectedBook(): void {
@@ -39,6 +42,7 @@ export class BooksComponent implements OnInit{
       author: '',
       year: 0
     }
+    this.isDetailsVisible = false;
   }
 
   removeBook(book: Book) {
